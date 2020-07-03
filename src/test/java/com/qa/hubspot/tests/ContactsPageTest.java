@@ -2,12 +2,14 @@ package com.qa.hubspot.tests;
 
 import org.testng.Assert;
 import org.testng.annotations.BeforeClass;
+import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 
 import com.qa.hubspot.base.BaseTest;
 import com.qa.hubspot.pages.ContactsPage;
 import com.qa.hubspot.pages.HomePage;
 import com.qa.hubspot.util.Constants;
+import com.qa.hubspot.util.ExcelUtil;
 
 public class ContactsPageTest extends BaseTest {
 	
@@ -31,9 +33,15 @@ public class ContactsPageTest extends BaseTest {
 		
 	}
 	
-	@Test(priority=2)
-	public void createContactTest() {
-		contactsPage.createContact("rahul@gmail.com", "Rahul", "Malhotra", "SDET Manager");
+	@DataProvider
+	public Object[][] getContactsTestData() {
+		Object[][] data = ExcelUtil.getTestData(Constants.CONTACTS_SHEET_NAME);
+		return data;
+	}
+	
+	@Test(priority=2,dataProvider = "getContactsTestData")
+	public void createContactTest(String email, String fn, String ln, String jobTitle) {
+		contactsPage.createContact(email, fn, ln, jobTitle);
 	}
 
 }

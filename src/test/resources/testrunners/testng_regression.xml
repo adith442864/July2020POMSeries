@@ -1,7 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
 
-<suite name="Hub Spot Test automation regression Suite" thread-count="2" parallel = "tests" verbose="3">
+<suite name="Hub Spot Test automation regression Suite" verbose="3">
+
+	<listeners>
+		<!-- listener class-name="com.qa.hubspot.listeners.ExtentReportListener" />-->
+		<!-- listener class-name="com.qa.hubspot.listeners.pdfListener" />-->
+		<!-- listener class-name="com.qa.hubspot.listeners.TestAllureListener" />-->
+		<!-- listener class-name="com.qa.hubspot.listeners.TesultsListener" />-->
+	</listeners>
 
 	<test name="Login Page Test">	
 		<classes>
@@ -9,10 +16,17 @@
 		</classes>
 	</test>
 	
-	<test name="Home Page Test">	
+	<!-- <test name="Home Page Test">	
 		<classes>
 			<class name="com.qa.hubspot.tests.HomePageTest" />
 		</classes>
-	</test>
+	</test>  -->
+	
+	
+	<!-- <test name="Home Page Test">	
+		<classes>
+			<class name="com.qa.hubspot.tests.ContactsPageTest" />
+		</classes>
+	</test>  -->
 	
 </suite>

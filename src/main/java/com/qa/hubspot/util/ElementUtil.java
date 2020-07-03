@@ -4,7 +4,6 @@ import java.time.Duration;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.function.Function;
-
 import org.openqa.selenium.Alert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.NoSuchElementException;
@@ -19,11 +18,11 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 
 import com.qa.hubspot.base.BasePage;
 
-public class ElementUtil extends BasePage{
-	
+
+public class ElementUtil extends BasePage {
+
 	WebDriver driver;
 	JavaScriptUtil jsUtil;
-
 
 	public ElementUtil(WebDriver driver) {
 		this.driver = driver;
@@ -40,9 +39,9 @@ public class ElementUtil extends BasePage{
 		try {
 			System.out.println("locator is : " + locator);
 			element = driver.findElement(locator);
-			if (prop.getProperty("highlight").equalsIgnoreCase("yes")) {
+			//if(prop.getProperty("highlight").equalsIgnoreCase("yes")){
 				jsUtil.flash(element);
-			}
+		//}
 			System.out.println("WebElement is created successfully : " + locator);
 
 		} catch (Exception e) {
@@ -260,7 +259,5 @@ public class ElementUtil extends BasePage{
 
 		return element;
 	}
-	
-	
 
 }

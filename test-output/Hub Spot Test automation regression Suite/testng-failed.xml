@@ -1,29 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
-<suite thread-count="2" guice-stage="DEVELOPMENT" verbose="3" name="Failed suite [Hub Spot Test automation regression Suite]" parallel="tests">
-  <test thread-count="2" verbose="3" name="Login Page Test(failed)" parallel="tests">
+<suite guice-stage="DEVELOPMENT" verbose="3" name="Failed suite [Hub Spot Test automation regression Suite]">
+  <listeners>
+    <listener class-name="com.qa.hubspot.listeners.ExtentReportListener"/>
+  </listeners>
+  <test thread-count="5" verbose="3" name="Login Page Test(failed)">
     <classes>
       <class name="com.qa.hubspot.tests.LoginPageTest">
         <methods>
-          <include name="doLogin"/>
+          <include name="verifyLoginPageTitleTest"/>
           <include name="SetUp"/>
           <include name="tearDown"/>
         </methods>
       </class> <!-- com.qa.hubspot.tests.LoginPageTest -->
     </classes>
   </test> <!-- Login Page Test(failed) -->
-  <test thread-count="2" verbose="3" name="Home Page Test(failed)" parallel="tests">
-    <classes>
-      <class name="com.qa.hubspot.tests.HomePageTest">
-        <methods>
-          <include name="verifyLoggedInUserTest"/>
-          <include name="SetUp"/>
-          <include name="tearDown"/>
-          <include name="verifyHomePageTitle"/>
-          <include name="verifyHomePageHeader"/>
-          <include name="homeSetup"/>
-        </methods>
-      </class> <!-- com.qa.hubspot.tests.HomePageTest -->
-    </classes>
-  </test> <!-- Home Page Test(failed) -->
 </suite> <!-- Failed suite [Hub Spot Test automation regression Suite] -->

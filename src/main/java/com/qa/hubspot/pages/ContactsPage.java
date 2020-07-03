@@ -22,6 +22,9 @@ public class ContactsPage extends BasePage {
 	By lastName = By.xpath("//input[@data-field='lastname']");
 	By jobTitle = By.xpath("//input[@data-field='jobtitle']");
 	
+	By contactsBackLink = By.xpath("(//i18n-string[text()='Contacts'])[position()=1]");
+	
+	
 //	By contactsClick = By.xpath("(//i18n-string[text()='Contacts'])");
 	
 	
@@ -57,7 +60,8 @@ public class ContactsPage extends BasePage {
 		
 		elementUtil.clickWhenReady(createContactSecondary, 5);
 	
-		
+//		elementUtil.clickWhenReady(contactsBackLink, 5);
+		elementUtil.doActionsClick(contactsBackLink);
 	}
 	
 

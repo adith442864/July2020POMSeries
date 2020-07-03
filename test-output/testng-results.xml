@@ -1,33 +1,33 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testng-results skipped="0" failed="0" ignored="0" total="2" passed="2">
+<testng-results skipped="0" failed="0" ignored="0" total="3" passed="3">
   <reporter-output>
   </reporter-output>
-  <suite name="Default suite" duration-ms="73412" started-at="2020-07-01T19:09:37 IST" finished-at="2020-07-01T19:10:50 IST">
+  <suite name="Hub Spot Test automation regression Suite" duration-ms="28703" started-at="2020-07-02T20:47:45 IST" finished-at="2020-07-02T20:48:14 IST">
     <groups>
     </groups>
-    <test name="Default test" duration-ms="73412" started-at="2020-07-01T19:09:37 IST" finished-at="2020-07-01T19:10:50 IST">
-      <class name="com.qa.hubspot.tests.ContactsPageTest">
-        <test-method status="PASS" signature="SetUp()[pri:0, instance:com.qa.hubspot.tests.ContactsPageTest@4493d195]" name="SetUp" is-config="true" duration-ms="12982" started-at="2020-07-01T19:09:37 IST" finished-at="2020-07-01T19:09:50 IST">
+    <test name="Login Page Test" duration-ms="28703" started-at="2020-07-02T20:47:45 IST" finished-at="2020-07-02T20:48:14 IST">
+      <class name="com.qa.hubspot.tests.LoginPageTest">
+        <test-method status="PASS" signature="SetUp()[pri:0, instance:com.qa.hubspot.tests.LoginPageTest@1677d1]" name="SetUp" is-config="true" duration-ms="9452" started-at="2020-07-02T20:47:46 IST" finished-at="2020-07-02T20:47:55 IST">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- SetUp -->
-        <test-method status="PASS" signature="contactsSetup()[pri:0, instance:com.qa.hubspot.tests.ContactsPageTest@4493d195]" name="contactsSetup" is-config="true" duration-ms="22246" started-at="2020-07-01T19:09:50 IST" finished-at="2020-07-01T19:10:12 IST">
+        <test-method status="PASS" signature="verifyLoginPageTitleTest()[pri:1, instance:com.qa.hubspot.tests.LoginPageTest@1677d1]" name="verifyLoginPageTitleTest" duration-ms="5923" started-at="2020-07-02T20:47:55 IST" finished-at="2020-07-02T20:48:01 IST">
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- contactsSetup -->
-        <test-method status="PASS" signature="verifyContactsPageTitleTest()[pri:1, instance:com.qa.hubspot.tests.ContactsPageTest@4493d195]" name="verifyContactsPageTitleTest" duration-ms="1589" started-at="2020-07-01T19:10:12 IST" finished-at="2020-07-01T19:10:14 IST">
+        </test-method> <!-- verifyLoginPageTitleTest -->
+        <test-method status="PASS" signature="verifySignUpLinkTest()[pri:2, instance:com.qa.hubspot.tests.LoginPageTest@1677d1]" name="verifySignUpLinkTest" duration-ms="3657" started-at="2020-07-02T20:48:01 IST" finished-at="2020-07-02T20:48:05 IST">
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- verifyContactsPageTitleTest -->
-        <test-method status="PASS" signature="createContactTest()[pri:2, instance:com.qa.hubspot.tests.ContactsPageTest@4493d195]" name="createContactTest" duration-ms="17570" started-at="2020-07-01T19:10:14 IST" finished-at="2020-07-01T19:10:31 IST">
+        </test-method> <!-- verifySignUpLinkTest -->
+        <test-method status="PASS" signature="doLogin()[pri:3, instance:com.qa.hubspot.tests.LoginPageTest@1677d1]" name="doLogin" duration-ms="6460" started-at="2020-07-02T20:48:05 IST" finished-at="2020-07-02T20:48:12 IST">
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- createContactTest -->
-        <test-method status="PASS" signature="tearDown()[pri:0, instance:com.qa.hubspot.tests.ContactsPageTest@4493d195]" name="tearDown" is-config="true" duration-ms="18956" started-at="2020-07-01T19:10:31 IST" finished-at="2020-07-01T19:10:50 IST">
+        </test-method> <!-- doLogin -->
+        <test-method status="PASS" signature="tearDown()[pri:0, instance:com.qa.hubspot.tests.LoginPageTest@1677d1]" name="tearDown" is-config="true" duration-ms="2596" started-at="2020-07-02T20:48:12 IST" finished-at="2020-07-02T20:48:14 IST">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- tearDown -->
-      </class> <!-- com.qa.hubspot.tests.ContactsPageTest -->
-    </test> <!-- Default test -->
-  </suite> <!-- Default suite -->
+      </class> <!-- com.qa.hubspot.tests.LoginPageTest -->
+    </test> <!-- Login Page Test -->
+  </suite> <!-- Hub Spot Test automation regression Suite -->
 </testng-results>
