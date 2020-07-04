@@ -121,9 +121,11 @@ public class BasePage {
 		prop = new Properties();
 		String path = null;
 		String env = null;
-
+		
 		try {
+
 			env = System.getProperty("env");
+			System.out.println("Environment value is :-->" +env);
 			if(env == null) {
 				path = System.getProperty("user.dir")+"\\src\\main\\java\\com\\qa\\hubspot\\config\\config.properties";
 			}
