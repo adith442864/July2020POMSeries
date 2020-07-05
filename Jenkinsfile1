@@ -2,7 +2,6 @@ pipeline {
   agent any
  
   stages {
-  parallel{
     stage('Test on QA') {
       steps {
         bat 'mvn clean install -Denv="qa"'
@@ -15,8 +14,8 @@ pipeline {
         bat 'mvn clean install'
       }
     }
-  }
- }
+  
+ 
   
 stage('reports') {
     steps {
@@ -44,7 +43,7 @@ stage('reports') {
     }
 }
 
-
+}
  tools {
     maven 'M3'
   }
