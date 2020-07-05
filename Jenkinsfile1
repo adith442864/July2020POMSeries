@@ -48,5 +48,3 @@ stage('reports') {
  tools {
     maven 'M3'
   }
-
-}
