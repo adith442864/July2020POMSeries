@@ -48,7 +48,16 @@ public class BasePage {
 	
 	public WebDriver init_driver(Properties prop) {
 		
-		String browserName = prop.getProperty("browser");
+		String browserName = null;
+		if(System.getProperty("browser") ==null){
+			browserName = prop.getProperty("browser");
+		}else {
+			browserName = System.getProperty("browser");
+		}
+		
+		System.out.println("Running on ----->" +browserName + "browser");
+		
+//		String browserName = prop.getProperty("browser");
 		optionsManager = new OptionsManager(prop);
 //		highlightElement = prop.getProperty("highlight").equalsIgnoreCase("yes") ? true : false;
 		
