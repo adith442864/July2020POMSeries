@@ -1,31 +1,17 @@
-
-  pipeline {
+pipeline {
   agent any
-  
+  tools {
+    maven 'M3'
+  }
   stages {
-    stage('Build Dev') {
-      parallel {
-        stage('Build Dev') {
-          steps {
-            sh 'mvn clean install -Denv ="dev"'
-          }
-        }
-
-      }
-    }
-
-    stage('Build QA') {
-      parallel {
-        stage('Build QA') {
-          steps {
-            sh 'mvn clean install -Denv="qa"'
-          }
-        }
-
+    stage('Test on PROD') {
+      steps {
+        bat 'mvn clean test'
       }
     }
   
-  stage('reports') {
+  
+stage('reports') {
     steps {
     script {
             allure([
@@ -47,13 +33,10 @@
         		 reportTitles: ''
         		 ])
         		 
-   		 }
     }
-	
-	}
+    }
 }
-  tools {
-    maven 'M3'
-  }
-  
+
+}
+
 }
