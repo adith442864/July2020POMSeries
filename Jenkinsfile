@@ -1,44 +1,75 @@
 pipeline {
   agent any
   stages {
-    stage('Test Run on Dev') {
+    stage('Build Dev') {
       parallel {
-        stage('Test Run on Dev') {
+        stage('Build Dev') {
           steps {
-            bat 'mvn clean install -Denv="dev"'
+            bat 'mvn clean install -DskipTests=true'
           }
         }
 
-        stage('Test QA') {
+        stage('chrome') {
           steps {
-            bat 'mvn clean install -Denv="qa"'
+            bat 'mvn test -Denv=qa -Dbrowser=chrome'
           }
         }
 
-		stage('Test Stage') {
-	          steps {
-	            bat 'mvn clean install -Denv="stage"'
-	          }
-	        }
+      }
+    }
 
-    
-	   stage('Test PROD') {
-		          steps {
-		            bat 'mvn clean install'
-		          }
-		        }
-   		}
-   
-   }
-   
-   		stage(''){
-   		steps{
-   			bat 'echo "test execution is done"'
-   			}
-   		}
-   	 }
-   }
-   		 
+    stage('Build QA') {
+      parallel {
+        stage('Build QA') {
+          steps {
+            bat 'mvn clean install -DskipTests=true'
+          }
+        }
+
+        stage('chrome') {
+          steps {
+            bat 'mvn test -Denv=qa -Dbrowser=chrome'
+          }
+        }
+
+        stage('firefox') {
+          steps {
+            bat 'mvn test -Denv=qa -Dbrowser=firefox'
+          }
+        }
+
+      }
+    }
+
+    stage('Build Stage') {
+      parallel {
+        stage('Build Stage') {
+          steps {
+            bat 'mvn clean install -DskipTests=true'
+          }
+        }
+
+        stage('firefox') {
+          steps {
+            bat 'mvn test -Denv=qa -Dbrowser=firefox'
+          }
+        }
+
+        stage('chrome') {
+          steps {
+            bat 'mvn test -Denv=qa -Dbrowser=chrome'
+          }
+        }
+
+        stage('safari') {
+          steps {
+            bat 'mvn test -Denv=qa -Dbrowser=safari'
+          }
+        }
+
+      }
+    }
+
     
     stage('Publish reports') {
            steps {
