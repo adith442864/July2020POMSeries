@@ -1,93 +1,43 @@
 pipeline {
   agent any
   stages {
-    stage('Build Dev') {
+    stage('Test Run on Dev') {
       parallel {
-        stage('Build Dev') {
+        stage('Test Run on Dev') {
           steps {
-            bat 'mvn clean install -DskipTests=true'
+            bat 'mvn clean install -Denv="dev"'
           }
         }
 
-        stage('chrome') {
+    stage('Test QA') {
           steps {
-            bat 'mvn test -Denv=qa -Dbrowser=chrome'
+            bat 'mvn clean install -Denv="qa"'
           }
         }
 
-      }
-    }
-
-    stage('Build QA') {
-      parallel {
-        stage('Build QA') {
+    stage('Test Stage') {
           steps {
-            bat 'mvn clean install -DskipTests=true'
+            bat 'mvn clean install -Denv="stg"'
           }
         }
 
-        stage('chrome') {
+     stage('Test PROD') {
           steps {
-            bat 'mvn test -Denv=qa -Dbrowser=chrome'
+            bat 'mvn clean install'
           }
-        }
-
-        stage('firefox') {
-          steps {
-            bat 'mvn test -Denv=qa -Dbrowser=firefox'
-          }
-        }
-
-      }
-    }
-
-    stage('Build Stage') {
-      parallel {
-        stage('Build Stage') {
-          steps {
-            bat 'mvn clean install -DskipTests=true'
-          }
-        }
-
-        stage('firefox') {
-          steps {
-            bat 'mvn test -Denv=qa -Dbrowser=firefox'
-          }
-        }
-
-        stage('chrome') {
-          steps {
-            bat 'mvn test -Denv=qa -Dbrowser=chrome'
-          }
-        }
-
-        stage('safari') {
-          steps {
-            bat 'mvn test -Denv=qa -Dbrowser=safari'
-          }
-        }
-
-      }
-    }
-
+        } 
+     }
+    } 
     
-    stage('Publish reports') {
-           steps {
-                script {
-                    allure([
-                        includeProperties: false,
-                        jdk: '',
-                        properties: [],
-                        reportBuildPolicy: 'ALWAYS',
-                        results: [[path: '/allure-results']]
-                    ])
-                }
-            }
-        }
-    
-    
-
-  }
+    stage(''){
+    steps{
+    	bat 'echo "test execution is done"'
+    	}
+     }
+     
+    }
+   } 
+   
   tools {
     maven 'M3'
   }
